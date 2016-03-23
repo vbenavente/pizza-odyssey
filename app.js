@@ -56,7 +56,111 @@ noon = {
 
 noon.driversRec = (Math.ceil(noon.pizzasDelivered / 3));
 
-hoursArray.push(eightAm, nineAm, tenAm, elevenAm, noon);//, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+onePm = {
+  time: '1:00pm',
+  pizzasSold: getRandomIntInclusive(0,7),
+  pizzasDelivered: getRandomIntInclusive(0,4),
+};
+
+onePm.driversRec = (Math.ceil(onePm.pizzasDelivered / 3));
+
+twoPm = {
+  time: '2:00pm',
+  pizzasSold: getRandomIntInclusive(2,15),
+  pizzasDelivered: getRandomIntInclusive(1,4),
+};
+
+twoPm.driversRec = (Math.ceil(twoPm.pizzasDelivered / 3));
+
+threePm = {
+  time: '3:00pm',
+  pizzasSold: getRandomIntInclusive(2,15),
+  pizzasDelivered: getRandomIntInclusive(1,4),
+};
+
+threePm.driversRec = (Math.ceil(threePm.pizzasDelivered / 3));
+
+fourPm = {
+  time: '4:00pm',
+  pizzasSold: getRandomIntInclusive(2,15),
+  pizzasDelivered: getRandomIntInclusive(1,4),
+};
+
+fourPm.driversRec = (Math.ceil(fourPm.pizzasDelivered / 3));
+
+fivePm = {
+  time: '5:00pm',
+  pizzasSold: getRandomIntInclusive(15,35),
+  pizzasDelivered: getRandomIntInclusive(3,8),
+};
+
+fivePm.driversRec = (Math.ceil(fivePm.pizzasDelivered / 3));
+
+sixPm = {
+  time: '6:00pm',
+  pizzasSold: getRandomIntInclusive(15,35),
+  pizzasDelivered: getRandomIntInclusive(3,8),
+};
+
+sixPm.driversRec = (Math.ceil(sixPm.pizzasDelivered / 3));
+
+sevenPm = {
+  time: '7:00pm',
+  pizzasSold: getRandomIntInclusive(15,35),
+  pizzasDelivered: getRandomIntInclusive(3,8),
+};
+
+sevenPm.driversRec = (Math.ceil(sevenPm.pizzasDelivered / 3));
+
+eightPm = {
+  time: '8:00pm',
+  pizzasSold: getRandomIntInclusive(12,31),
+  pizzasDelivered: getRandomIntInclusive(5,12),
+};
+
+eightPm.driversRec = (Math.ceil(eightPm.pizzasDelivered / 3));
+
+ninePm = {
+  time: '9:00pm',
+  pizzasSold: getRandomIntInclusive(12,31),
+  pizzasDelivered: getRandomIntInclusive(5,12),
+};
+
+ninePm.driversRec = (Math.ceil(ninePm.pizzasDelivered / 3));
+
+tenPm = {
+  time: '10:00pm',
+  pizzasSold: getRandomIntInclusive(12,31),
+  pizzasDelivered: getRandomIntInclusive(5,12),
+};
+
+tenPm.driversRec = (Math.ceil(tenPm.pizzasDelivered / 3));
+
+elevenPm = {
+  time: '11:00pm',
+  pizzasSold: getRandomIntInclusive(5,20),
+  pizzasDelivered: getRandomIntInclusive(6,11),
+};
+
+elevenPm.driversRec = (Math.ceil(elevenPm.pizzasDelivered / 3));
+
+midnight = {
+  time: 'midnight',
+  pizzasSold: getRandomIntInclusive(5,20),
+  pizzasDelivered: getRandomIntInclusive(6,11),
+};
+
+midnight.driversRec = (Math.ceil(midnight.pizzasDelivered / 3));
+
+oneAm = {
+  time: '1:00am',
+  pizzasSold: getRandomIntInclusive(5,20),
+  pizzasDelivered: getRandomIntInclusive(6,11),
+};
+
+oneAm.driversRec = (Math.ceil(oneAm.pizzasDelivered / 3));
+
+hoursArray.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
 
 for(var i = 0; i < hoursArray.length; i++) {
   var ballardArt = document.getElementById('Ballard');
