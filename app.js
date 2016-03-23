@@ -1,4 +1,6 @@
-var hoursArray = [];
+var hoursArrayBallard = [];
+var hoursArraryFirstHill = [];
+var hoursArrayIntDist = [];
 var getRandomIntInclusive;
 var driversRecommended;
 var ballard, firstHill, theInternationalDistrict, southLakeUnion, georgeTown, ravenna;
@@ -8,6 +10,15 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+/*for(var j = 0; j < 7; j++) {
+  if(j = 0){
+    hoursArrayBallard.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+  } else if(j = 1){
+    hoursArrayFirstHill.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+  } else {
+    hoursArrayIntDist.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+  }
+}*/
 eightAm = {
   time: '8:00am',
   pizzasSold: getRandomIntInclusive(0,4),
@@ -152,28 +163,34 @@ oneAm = {
 
 oneAm.driversRec = (Math.ceil(oneAm.pizzasDelivered / 3));
 
-hoursArray.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+console.log('works');
 
-for(var i = 0; i < hoursArray.length; i++) {
+hoursArrayBallard.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+
+//hoursArrayFirstHill.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+
+//hoursArrayIntDist.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+
+for(var i = 0; i < hoursArrayBallard.length; i++) {
   var ballardArt = document.getElementById('Ballard');
   var cityBallard = document.createElement('ul');
-  if(hoursArray[i].driversRec < 1) {
+  if(hoursArrayBallard[i].driversRec < 1) {
     what = '[driver not recommended]';
   }else {
-    what = ' [drivers recommended: ' + hoursArray[i].driversRec + ']';
+    what = ' [drivers recommended: ' + hoursArrayBallard[i].driversRec + ']';
   }
-  cityBallard.textContent = hoursArray[i].time + ' ' + hoursArray[i].pizzasSold + ' pizzas ' + hoursArray[i].pizzasDelivered + ' deliveries ' + what;
+  cityBallard.textContent = hoursArrayBallard[i].time + ' ' + hoursArrayBallard[i].pizzasSold + ' pizzas ' + hoursArrayBallard[i].pizzasDelivered + ' deliveries ' + what;
   ballardArt.appendChild(cityBallard);
 }
 
-for(var i = 0; i < hoursArray.length; i++) {
+for(var i = 0; i < hoursArrayFirstHill.length; i++) {
   var firstHillArt = document.getElementById('First Hill');
   var cityFirstHill = document.createElement('ul');
-  if(hoursArray[i].driversRec < 1) {
+  if(hoursArrayFirstHill[i].driversRec < 1) {
     what = '[driver not recommended]';
   }else {
-    what = ' [drivers recommended: ' + hoursArray[i].driversRec + ']';
+    what = ' [drivers recommended: ' + hoursArrayFirstHill[i].driversRec + ']';
   }
-  cityFirstHill.textContent = hoursArray[i].time + ' ' + hoursArray[i].pizzasSold + ' pizzas ' + hoursArray[i].pizzasDelivered + ' deliveries ' + what;
+  cityFirstHill.textContent = hoursArrayFirstHill[i].time + ' ' + hoursArrayFirstHill[i].pizzasSold + ' pizzas ' + hoursArrayFirstHill[i].pizzasDelivered + ' deliveries ' + what;
   firstHillArt.appendChild(cityFirstHill);
 }
