@@ -9,7 +9,7 @@ function getRandomIntInclusive(min, max) {
 }
 
 eightAm = {
-  time: '8:00',
+  time: '8:00am',
   pizzasSold: getRandomIntInclusive(0,4),
   pizzasDelivered: getRandomIntInclusive(0,4),
 };
@@ -17,23 +17,55 @@ eightAm = {
 eightAm.driversRec = (Math.ceil(eightAm.pizzasDelivered / 3));
 
 nineAm = {
-  time: '9:00',
+  time: '9:00am',
   pizzasSold: getRandomIntInclusive(0,4),
   pizzasDelivered: getRandomIntInclusive(0,4),
 };
 
 nineAm.driversRec = (Math.ceil(nineAm.pizzasDelivered / 3));
 
-hoursArray.push(eightAm, nineAm);//, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+tenAm = {
+  time: '10:00am',
+  pizzasSold: getRandomIntInclusive(0,4),
+  pizzasDelivered: getRandomIntInclusive(0,4),
+};
+
+tenAm.driversRec = (Math.ceil(tenAm.pizzasDelivered / 3));
+
+elevenAm = {
+  time: '11:00am',
+  pizzasSold: getRandomIntInclusive(0,7),
+  pizzasDelivered: getRandomIntInclusive(0,4),
+};
+
+elevenAm.driversRec = (Math.ceil(elevenAm.pizzasDelivered / 3));
+
+elevenAm = {
+  time: '11:00am',
+  pizzasSold: getRandomIntInclusive(0,7),
+  pizzasDelivered: getRandomIntInclusive(0,4),
+};
+
+elevenAm.driversRec = (Math.ceil(elevenAm.pizzasDelivered / 3));
+
+noon = {
+  time: 'noon',
+  pizzasSold: getRandomIntInclusive(0,7),
+  pizzasDelivered: getRandomIntInclusive(0,4),
+};
+
+noon.driversRec = (Math.ceil(noon.pizzasDelivered / 3));
+
+hoursArray.push(eightAm, nineAm, tenAm, elevenAm, noon);//, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
 
 for(var i = 0; i < hoursArray.length; i++) {
-  var ballardUl = document.getElementById('Ballard');
-  var cityBallard = document.createElement('li');
+  var ballardArt = document.getElementById('Ballard');
+  var cityBallard = document.createElement('ul');
   if(hoursArray[i].driversRec < 1) {
     what = '[driver not recommended]';
   }else {
     what = ' [drivers recommended: ' + hoursArray[i].driversRec + ']';
   }
-  cityBallard.textContent = hoursArray[i].time + 'am ' + hoursArray[i].pizzasSold + ' pizzas ' + hoursArray[i].pizzasDelivered + ' deliveries ' + what;
-  ballardUl.appendChild(cityBallard);
+  cityBallard.textContent = hoursArray[i].time + ' ' + hoursArray[i].pizzasSold + ' pizzas ' + hoursArray[i].pizzasDelivered + ' deliveries ' + what;
+  ballardArt.appendChild(cityBallard);
 }
