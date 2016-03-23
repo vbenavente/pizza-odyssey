@@ -18,7 +18,8 @@ eightAm.driversRec = Math.ceil(driversRecommended / 3);
 
 hoursArray.push(eightAm);//, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
 
+//for(var i = 0; i < hoursArray.length; i++);
 var ballardUl = document.getElementById('Ballard');
 var cityBallard = document.createElement('li');
-cityBallard.textContent = 'helllo';
+cityBallard.textContent = hoursArray[0].time + 'am ' + hoursArray[0].pizzasSold + ' pizzas ' + hoursArray[0].pizzasDelivered + ' deliveries ' + '-- [drivers recommended: ' + hoursArray[0].driversRec + ']';
 ballardUl.appendChild(cityBallard);
