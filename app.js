@@ -1,6 +1,7 @@
 var hoursArray = [];
 var getRandomIntInclusive;
 var driversRecommended;
+var ballard, firstHill, theInternationalDistrict, southLakeUnion, georgeTown, ravenna;
 var eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm;
 var pizzasDelivered1;
 function getRandomIntInclusive(min, max) {
@@ -8,10 +9,16 @@ function getRandomIntInclusive(min, max) {
 }
 
 eightAm = {
+  time: '8:00',
   pizzasSold: getRandomIntInclusive(0,4),
   pizzasDelivered: getRandomIntInclusive(0,4),
 };
-var DriversRecommended = eightAm.pizzasDelivered;
-eightAm.DriversRec = Math.ceil(DriversRecommended / 3);
+driversRecommended = eightAm.pizzasDelivered;
+eightAm.driversRec = Math.ceil(driversRecommended / 3);
 
-hoursArray.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+hoursArray.push(eightAm);//, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+
+var ballardUl = document.getElementById('Ballard');
+var cityBallard = document.createElement('li');
+cityBallard.textContent = 'helllo';
+ballardUl.appendChild(cityBallard);
