@@ -40,14 +40,6 @@ elevenAm = {
 
 elevenAm.driversRec = (Math.ceil(elevenAm.pizzasDelivered / 3));
 
-elevenAm = {
-  time: '11:00am',
-  pizzasSold: getRandomIntInclusive(0,7),
-  pizzasDelivered: getRandomIntInclusive(0,4),
-};
-
-elevenAm.driversRec = (Math.ceil(elevenAm.pizzasDelivered / 3));
-
 noon = {
   time: 'noon',
   pizzasSold: getRandomIntInclusive(0,7),
@@ -172,4 +164,16 @@ for(var i = 0; i < hoursArray.length; i++) {
   }
   cityBallard.textContent = hoursArray[i].time + ' ' + hoursArray[i].pizzasSold + ' pizzas ' + hoursArray[i].pizzasDelivered + ' deliveries ' + what;
   ballardArt.appendChild(cityBallard);
+}
+
+for(var i = 0; i < hoursArray.length; i++) {
+  var firstHillArt = document.getElementById('First Hill');
+  var cityFirstHill = document.createElement('ul');
+  if(hoursArray[i].driversRec < 1) {
+    what = '[driver not recommended]';
+  }else {
+    what = ' [drivers recommended: ' + hoursArray[i].driversRec + ']';
+  }
+  cityFirstHill.textContent = hoursArray[i].time + ' ' + hoursArray[i].pizzasSold + ' pizzas ' + hoursArray[i].pizzasDelivered + ' deliveries ' + what;
+  firstHillArt.appendChild(cityFirstHill);
 }
