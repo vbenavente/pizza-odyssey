@@ -157,12 +157,16 @@ function generateDataRow(inputArray){
   return row;
 }
 
+function generatePizzaRow(inputArray){}
+
 function makeTable(store, storeId){
 
   var pizzaTable = document.getElementById(storeId);
   for(var i = 0; i < store.hourlyLocationData.length; i++) {
     var fancyRow = generateDataRow([store.hourlyLocationData[i].time, store.hourlyLocationData[i].pizzasSold, store.hourlyLocationData[i].deliveriesMade, store.hourlyLocationData[i].driversNeeded]);
     pizzaTable.appendChild(fancyRow);
+
+    var fancyPizzas = generatePizzaRow([store.hourlyLocationData[i].pizzasSold]);
   }
 }
 
