@@ -32,8 +32,8 @@ var eleven = new HourlyData('11:00am', 0, 4, 0, 4);
 ballard.pushHourlyData(eleven);
 console.log ('ballard.HourlyData');
 
-var columndata = ['a', 'b', 'c', 1, 2, 3];
-generateDataRow(columndata);
+//var columndata = ['a', 'b', 'c', 1, 2, 3];
+//generateDataRow(columndata);
 
 function generateDataRow(inputArray){
   var row = document.createElement('tr');
@@ -50,7 +50,7 @@ function generateHeadingRow(inputArray){
   var row = document.createElement('tr');
   var col;
   for(var i = 0; i < inputArray.length; i++){
-    col = document.createElement('th');
+    col = document.createElement('td');
     col.textContent = inputArray[i];
     row.appendChild(col);
   }
