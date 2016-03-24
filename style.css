@@ -1,13 +1,17 @@
-@import url(https://fonts.googleapis.com/css?family=Orbitron);
+
 
 /*color palette*/
 
-body {}
+body {
+font-family: 'Orbitron', sans-serif;
+}
 table {}
 h1 {}
 .location {}
 tr {}
-th {}
+th {
+  text-align: center;
+}
 img{
   width: 200px;
   heigth: 200px;
