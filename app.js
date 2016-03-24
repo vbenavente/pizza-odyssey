@@ -275,4 +275,9 @@ for(var i = 0; i < hoursArrayRavenna.length; i++) {
 
 console.log(pizzaOdysseysRav);
 
-var totalPizzaOysseys = ((pizzaOdysseysBal + pizzaOdysseysFH + pizzaOdysseysIntD + pizzaOdysseysSLU + pizzaOdysseysGT + pizzaOdysseysRav) * 6);
+var addPO = document.getElementById('pizzaodysseys');
+var totalPO = document.createElement('ul');
+var totalPizzaOdysseys = ((pizzaOdysseysBal + pizzaOdysseysFH + pizzaOdysseysIntD + pizzaOdysseysSLU + pizzaOdysseysGT + pizzaOdysseysRav) * 6);
+
+//totalPO.textcontent = (totalPizzaOdysseys + ' happy pizza odysseys this week!');
+//addPO.appendChild(totalPO);
