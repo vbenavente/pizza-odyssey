@@ -157,7 +157,16 @@ function generateDataRow(inputArray){
   return row;
 }
 
-function generatePizzaRow(inputArray){}
+function wantPizzas(inputArray){
+  var odysseyrow = document.createElement('ul');
+  var odysseycol;
+  for(var i = 0; i < inputArray.length; i++){
+    odysseycol = document.createElement('li');
+    odysseycol.textContent = inputArray[i];
+    odysseyrow.appendChild(odysseycol);
+  }
+  return odysseyrow;
+}
 
 function makeTable(store, storeId){
 
@@ -166,7 +175,14 @@ function makeTable(store, storeId){
     var fancyRow = generateDataRow([store.hourlyLocationData[i].time, store.hourlyLocationData[i].pizzasSold, store.hourlyLocationData[i].deliveriesMade, store.hourlyLocationData[i].driversNeeded]);
     pizzaTable.appendChild(fancyRow);
 
-    var fancyPizzas = generatePizzaRow([store.hourlyLocationData[i].pizzasSold]);
+    var fancyPizzas = wantPizzas([store.hourlyLocationData[i].pizzasSold]);
+  }
+  function sumPizzas(fancyPizzas){
+    var totalPizzas = 0;
+    for(var i = 0; i < fancyPizzas.length; i++){
+      totalPizzas += fancyPizzas[i];
+    }
+    sumPizzas();
   }
 }
 
