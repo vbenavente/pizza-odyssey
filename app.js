@@ -1,6 +1,9 @@
 var hoursArrayBallard = [];
 var hoursArrayFirstHill = [];
 var hoursArrayIntDist = [];
+var hoursArraySLU = [];
+var hoursArrayGeorgeTown = [];
+var hoursArrayRavenna = [];
 var getRandomIntInclusive;
 var driversRecommended;
 var ballard, firstHill, theInternationalDistrict, southLakeUnion, georgeTown, ravenna;
@@ -164,7 +167,17 @@ hoursArrayBallard.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, thr
 getStoreHoursArray();
 hoursArrayFirstHill.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
 
-//hoursArrayIntDist.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+getStoreHoursArray();
+hoursArrayIntDist.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+
+getStoreHoursArray();
+hoursArraySLU.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+
+getStoreHoursArray();
+hoursArrayGeorgeTown.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
+
+getStoreHoursArray();
+hoursArrayRavenna.push(eightAm, nineAm, tenAm, elevenAm, noon, onePm, twoPm, threePm, fourPm, fivePm, sixPm, sevenPm, eightPm, ninePm, tenPm, elevenPm, midnight, oneAm);
 
 for(var i = 0; i < hoursArrayBallard.length; i++) {
   var ballardArt = document.getElementById('Ballard');
@@ -179,7 +192,7 @@ for(var i = 0; i < hoursArrayBallard.length; i++) {
 }
 
 for(var i = 0; i < hoursArrayFirstHill.length; i++) {
-  var firstHillArt = document.getElementById('First Hill');
+  var firstHillArt = document.getElementById('FirstHill');
   var cityFirstHill = document.createElement('ul');
   if(hoursArrayFirstHill[i].driversRec < 1) {
     what = '[driver not recommended]';
@@ -188,4 +201,52 @@ for(var i = 0; i < hoursArrayFirstHill.length; i++) {
   }
   cityFirstHill.textContent = hoursArrayFirstHill[i].time + ' ' + hoursArrayFirstHill[i].pizzasSold + ' pizzas ' + hoursArrayFirstHill[i].pizzasDelivered + ' deliveries ' + what;
   firstHillArt.appendChild(cityFirstHill);
+}
+
+for(var i = 0; i < hoursArrayIntDist.length; i++) {
+  var intDistArt = document.getElementById('InternationalDistrict');
+  var cityIntDist = document.createElement('ul');
+  if(hoursArrayIntDist[i].driversRec < 1) {
+    what = '[driver not recommended]';
+  }else {
+    what = ' [drivers recommended: ' + hoursArrayIntDist[i].driversRec + ']';
+  }
+  cityIntDist.textContent = hoursArrayIntDist[i].time + ' ' + hoursArrayIntDist[i].pizzasSold + ' pizzas ' + hoursArrayIntDist[i].pizzasDelivered + ' deliveries ' + what;
+  intDistArt.appendChild(cityIntDist);
+}
+
+for(var i = 0; i < hoursArraySLU.length; i++) {
+  var sLUArt = document.getElementById('SouthLakeUnion');
+  var citySLU = document.createElement('ul');
+  if(hoursArraySLU[i].driversRec < 1) {
+    what = '[driver not recommended]';
+  }else {
+    what = ' [drivers recommended: ' + hoursArraySLU[i].driversRec + ']';
+  }
+  citySLU.textContent = hoursArraySLU[i].time + ' ' + hoursArraySLU[i].pizzasSold + ' pizzas ' + hoursArraySLU[i].pizzasDelivered + ' deliveries ' + what;
+  sLUArt.appendChild(citySLU);
+}
+
+for(var i = 0; i < hoursArrayGeorgeTown.length; i++) {
+  var georgeTownArt = document.getElementById('Georgetown');
+  var cityGeorgeTown = document.createElement('ul');
+  if(hoursArrayGeorgeTown[i].driversRec < 1) {
+    what = '[driver not recommended]';
+  }else {
+    what = ' [drivers recommended: ' + hoursArrayGeorgeTown[i].driversRec + ']';
+  }
+  cityGeorgeTown.textContent = hoursArrayGeorgeTown[i].time + ' ' + hoursArrayGeorgeTown[i].pizzasSold + ' pizzas ' + hoursArrayGeorgeTown[i].pizzasDelivered + ' deliveries ' + what;
+  georgeTownArt.appendChild(cityGeorgeTown);
+}
+
+for(var i = 0; i < hoursArrayRavenna.length; i++) {
+  var ravennaArt = document.getElementById('Ravenna');
+  var cityRavenna = document.createElement('ul');
+  if(hoursArrayRavenna[i].driversRec < 1) {
+    what = '[driver not recommended]';
+  }else {
+    what = ' [drivers recommended: ' + hoursArrayRavenna[i].driversRec + ']';
+  }
+  cityRavenna.textContent = hoursArrayRavenna[i].time + ' ' + hoursArrayRavenna[i].pizzasSold + ' pizzas ' + hoursArrayRavenna[i].pizzasDelivered + ' deliveries ' + what;
+  ravennaArt.appendChild(cityRavenna);
 }
