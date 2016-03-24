@@ -150,7 +150,7 @@ function generateDataRow(inputArray){
   var row = document.createElement('tr');
   var col;
   for(var i = 0; i < inputArray.length; i++){
-    col = document.createElement('td');
+    col = document.createElement('th');
     col.textContent = inputArray[i];
     row.appendChild(col);
   }
