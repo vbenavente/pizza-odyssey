@@ -21,6 +21,18 @@ function HourlyData(time, minPizzasSold, maxPizzasSold, minDeliveriesMade, maxDe
   this.driversNeeded = Math.ceil(this.deliveriesMade / 3);
 }
 
+function getTime(e) {
+  if(!e) {
+    e = window.event;
+  }
+  return e.target;
+}
+function timeEntry(e) {
+  var time = document.getElementById('timefeedback');
+  var hour = document.getElementById('hourentry');
+  time.textContent = '';
+}
+
 ballard = new CityLocation('ballard');
 ballard.pushHourlyData(new HourlyData('8:00am', 0, 3, 1, 7));
 ballard.pushHourlyData(new HourlyData('9:00am', 0, 3, 1, 7));
