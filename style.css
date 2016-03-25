@@ -9,6 +9,9 @@ font-family: 'Orbitron', sans-serif;
 background-color: #d500f9;
 }
 
+.insert{
+  width: 50px;
+}
 td {
   text-align: center;
 }
