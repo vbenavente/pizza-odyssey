@@ -1,6 +1,7 @@
 var ballard, firstHill, theIntDist, southLakeUnion, georgeTown, Ravenna;
 var pizzaTable;
-var pizzzaOdyssey;
+var pizzaodysseysID = document.getElementById('pizzaodysseys');
+var pizzaOdyssey = 0;
 
 function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -219,13 +220,10 @@ function pizzaSoldArray(store){
   return row;
 }
 
-function totalPizzas(){
-  pizzzaOdyssey = document.getElementById('pizzaodysseys');
-  for(var i = 0; i < 18; i++){
-    var sumPizzas = pizzaSoldArray([ballard.hourlyLocationData[i].pizzasSold] + [firstHill.hourlyLocationData[i].pizzasSold]);
-    pizzzaOdyssey.appendChild(sumPizzas);
+function totalPizzas(store){
+  for(var i = 0; i < store.hourlyLocationData.length; i++){
+    pizzaOdyssey += store.hourlyLocationData[i].pizzasSold;
   }
-  return sumPizzas;
 }
 
 function makeTable(store, storeId){
@@ -270,6 +268,16 @@ function makeTable(store, storeId){
     submitclassName = 'disabled';
   });
 });
+
+if(pizzaodysseysID){
+  totalPizzas(ballard);
+  totalPizzas(firstHill);
+  totalPizzas(theIntDist);
+  totalPizzas(southLakeUnion);
+  totalPizzas(georgeTown);
+  totalPizzas(Ravenna);
+  pizzaodysseysID.textContent = (pizzaOdyssey + ' total pizza odysseys this week.');
+}
 
 makeTable(ballard, 'ballard');
 makeTable(firstHill, 'firsthill');
