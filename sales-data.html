@@ -37,17 +37,17 @@
         </table>
       </section>
       <section>
-        <table id="newlocation">
+        <form id="newlocation">
           <h1 class="location">New Store</h1>
-          <fieldset>
+          <fieldset id="addedinfo">
               <legend>Input Loacation Data</legend>
 
               <label name="getLocation">Location:</label>
-              <input class ="insert" name="getLocation" type ="text">
+              <input id="location"class ="insert" name="getLocation" type ="text">
               <br></br>
 
               <label name="gettime">Time:</label>
-              <input class="insert" name="gettime" type ="text">
+              <input id="time"class="insert" name="gettime" type ="text">
 
               <label name="minPizzaSold">MinPizzaSold:</label>
               <input class="insert" name="minPizzasSold" type="text">
@@ -61,8 +61,8 @@
               <label name="maxDeliveriesMade">maxDeliveriesMade:</label>
               <input class="insert" name="maxDeliveriesMade" type="text">
 
-              <button type="sumbit">Create New Location Data</button>
-        </table>
+              <button id="submit"type="submit">Submit</button>
+        </form>
       </section>
     </article>
     <script src="app.js" type="text/javascript"></script>

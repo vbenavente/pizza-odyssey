@@ -247,6 +247,30 @@ function makeTable(store, storeId){
   //  sumPizzas();
 }
 
+(function(){
+  var form = document.getElementById('addedinfo');
+  var location = document.getElementById('location');
+  var time = document.getElementById('time');
+  var submit = document.getElementById('submit');
+  var sumbitted = false;
+  submit.className = 'disabled';
+
+  addEvent(location, 'input', function(e) {
+    var target = e.target || e.srcElement;
+    submit.disabled = sumbitted || !target.value;
+    submit.className = (!target.value || submitted) ? 'disabled' : 'enabled';
+  });
+  addEvent(form, 'submit', function(e) {
+    if(submit.disabled || submitted) {
+      e.preventDefault();
+      return;
+    }
+    submit.disabled = true;
+    submitted = true;
+    submitclassName = 'disabled';
+  });
+});
+
 makeTable(ballard, 'ballard');
 makeTable(firstHill, 'firsthill');
 makeTable(theIntDist, 'intdist');
