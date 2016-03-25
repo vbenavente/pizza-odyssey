@@ -1,5 +1,6 @@
 var ballard, firstHill, theIntDist, southLakeUnion, georgeTown, Ravenna;
 var pizzaTable;
+//var createblahblahblah = document.getElementById('get-')
 var pizzaodysseysID = document.getElementById('pizzaodysseys');
 var pizzaOdyssey = 0;
 
@@ -23,19 +24,6 @@ function HourlyData(time, minPizzasSold, maxPizzasSold, minDeliveriesMade, maxDe
   this.deliveriesMade = getRandomIntInclusive(minDeliveriesMade, maxDeliveriesMade);
   this.driversNeeded = Math.ceil(this.deliveriesMade / 3);
 }
-/*function getTime(e) {
-  if(!e) {
-    e = window.event;
-  }
-  return e.target;
-}
-function timeEntry(e) {
-  var time = document.getElementById('timefeedback');
-  var hour = document.getElementById('hourentry');
-  time.textContent = '';
-}*/
-
-//var createblahblahblah = document.getElementById('get-')
 
 ballard = new CityLocation('ballard');
 ballard.pushHourlyData(new HourlyData('8:00am', 0, 3, 1, 7));
@@ -234,40 +222,43 @@ function makeTable(store, storeId){
     var fancyRow = generateDataRow([store.hourlyLocationData[i].time, store.hourlyLocationData[i].pizzasSold, store.hourlyLocationData[i].deliveriesMade, store.hourlyLocationData[i].driversNeeded]);
     pizzaTable.appendChild(fancyRow);
   }
-
-    //var fancyPizzas = wantPizzas([store.hourlyLocationData[i].pizzasSold]);
-    //console.log(fancyPizzas);
-  //function sumPizzas(fancyPizzas){
-  //  var totalPizzas = 0;
-  //  for(var i = 0; i < fancyPizzas.length; i++){
-  //    totalPizzas += fancyPizzas[i];
-  //  }
-  //  sumPizzas();
 }
 
-(function(){
-  var form = document.getElementById('addedinfo');
-  var location = document.getElementById('location');
-  var time = document.getElementById('time');
-  var submit = document.getElementById('submit');
-  var sumbitted = false;
-  submit.className = 'disabled';
+/*function addLocation(event){
+  event.preventDefault();
 
-  addEvent(location, 'input', function(e) {
-    var target = e.target || e.srcElement;
-    submit.disabled = sumbitted || !target.value;
-    submit.className = (!target.value || submitted) ? 'disabled' : 'enabled';
-  });
-  addEvent(form, 'submit', function(e) {
-    if(submit.disabled || submitted) {
-      e.preventDefault();
-      return;
-    }
-    submit.disabled = true;
-    submitted = true;
-    submitclassName = 'disabled';
-  });
+  var form = document.getElementById('newlocation');
+  var location = event.target.location.value;
+  console.log('location: ', location);
+  var time = document.getElementById('time');
+  console.log('time', time);
+  var eightAmRow = document.createElement('tr');
+
+  var eightAmCoumn = document.createElement('td');
+  eightAmColumn.textContent = time;
+  eightAmRow.appenChild(eightAmColumn);
+
+  form.appendChild(eightAmRow);
+}
+
+var submit = document.getElementById('submit');
+var sumbitted = false;
+submit.className = 'disabled';
+
+addEvent(location, 'input', function(e) {
+  var target = e.target || e.srcElement;
+  submit.disabled = sumbitted || !target.value;
+  submit.className = (!target.value || submitted) ? 'disabled' : 'enabled';
 });
+addEvent(form, 'submit', function(e) {
+  if(submit.disabled || submitted) {
+    e.preventDefault();
+    return;
+  }
+  submit.disabled = true;
+  submitted = true;
+  submitclassName = 'disabled';
+});*/
 
 if(pizzaodysseysID){
   totalPizzas(ballard);
