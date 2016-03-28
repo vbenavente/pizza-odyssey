@@ -1,5 +1,90 @@
-var CityLocation;
-var ballard, firstHill, theIntDist, southLakeUnion, georgeTown, Ravenna;
+var ballard, firstHill, theIntDist, southLakeUnion, georgeTown, Ravenna, newStoreInfo, addStore;
+var pizzaTable;
+var pizzaodysseysID = document.getElementById('pizzaodysseys');
+var pizzaOdyssey = 0;
+
+var createAddStoreForm = document.getElementById('form');
+
+function collectAddStoreInfoFromForm(event){
+  event.preventDefault();
+
+  var addstore = document.getElementById('addstore');
+
+  var getLocation = event.target.getLocation.value;
+  console.log(getLocation);
+  var time8am = event.target.time8am.value;
+  var minPizzaSold8am = parseInt(event.target.minPizzaSold8am.value);
+  var maxPizzaSold8am = parseInt(event.target.maxPizzaSold8am.value);
+  var minDeliveriesMade8am = parseInt(event.target.minDeliveriesMade8am.value);
+  var maxDeliveriesMade8am = parseInt(event.target.maxDeliveriesMade8am.value);
+  console.log(time8am, minPizzaSold8am, maxPizzaSold8am, minDeliveriesMade8am, maxDeliveriesMade8am);
+
+  function getRandomIntInclusive(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function CityLocation(getLocation){
+    this.name = name;
+    this.hourlyLocationData = [];
+    this.HeaderData = [['Time'], ['Pizzas Sold'], ['Pizzas Delivered'], ['Drivers Recommended']];
+    console.log(this.name, this.hourlyLocationData, this.HeaderData);
+  }
+
+  CityLocation.prototype.pushHourlyData = function(data){
+    this.hourlyLocationData.push(data);
+  };
+
+  function HourlyData(time, minPizzasSold, maxPizzasSold, minDeliveriesMade, maxDeliveriesMade){
+    this.time = time;
+    this.pizzasSold = getRandomIntInclusive(minPizzasSold, maxPizzasSold);
+    this.deliveriesMade = getRandomIntInclusive(minDeliveriesMade, maxDeliveriesMade);
+    this.driversNeeded = Math.ceil(this.deliveriesMade / 3);
+    console.log(this.time, this.pizzasSold, this.deliveriesMade, this.driversNeeded);
+  }
+
+  addStore = new CityLocation(getLocation);
+  addStore.pushHourlyData(new HourlyData(time8am, minPizzaSold8am, maxPizzaSold8am, minDeliveriesMade8am, maxDeliveriesMade8am));
+
+  var getLocationTitle = document.createElement('h1');
+  getLocationTitle.textContent = getLocation;
+
+  function generateHeadingRow(inputArray){
+    var row = document.createElement('tr');
+    var col;
+    for(var i = 0; i < inputArray.length; i++){
+      col = document.createElement('th');
+      col.textContent = inputArray[i];
+      row.appendChild(col);
+    }
+    return row;
+  }
+
+  function generateDataRow(inputArray){
+    var row = document.createElement('tr');
+    var col;
+    for(var i = 0; i < inputArray.length; i++){
+      col = document.createElement('td');
+      col.textContent = inputArray[i];
+      row.appendChild(col);
+    }
+    return row;
+  }
+
+  function makeTable(getLocation, addStore){
+    pizzaTable = document.getElementById(addStore);
+    pizzaTable.appendChild(getLocationTitle);
+    var fancyHeader = generateHeadingRow(['Time', 'Pizzas Sold', 'Pizzas Delivered', 'Drivers Recommended']);
+    pizzaTable.appendChild(fancyHeader);
+    for(var i = 0; i < addStore.hourlyLocationData.length; i++) {
+      var fancyRow = generateDataRow([addStore.hourlyLocationData[i].time, addStore.hourlyLocationData[i].pizzasSold, addStore.hourlyLocationData[i].deliveriesMade, addStore.hourlyLocationData[i].driversNeeded]);
+      pizzaTable.appendChild(fancyRow);
+    }
+  }
+
+  makeTable(name, 'addstore');
+}
+
+createAddStoreForm.addEventListener('submit', collectAddStoreInfoFromForm);
 
 function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -8,6 +93,7 @@ function getRandomIntInclusive(min, max) {
 function CityLocation(name){
   this.name = name;
   this.hourlyLocationData = [];
+  this.HeaderData = [['Time'], ['Pizzas Sold'], ['Pizzas Delivered'], ['Drivers Recommended']];
 }
 
 CityLocation.prototype.pushHourlyData = function(data){
@@ -143,10 +229,7 @@ Ravenna.pushHourlyData(new HourlyData('11:00pm', 2, 4, 3, 11));
 Ravenna.pushHourlyData(new HourlyData('midnight', 2, 4, 3, 11));
 Ravenna.pushHourlyData(new HourlyData('1:00am', 2, 4, 3, 11));
 
-//var columndata = ['a', 'b', 'c', 1, 2, 3];
-//generateDataRow(columndata);
-
-function generateDataRow(inputArray){
+function generateHeadingRow(inputArray){
   var row = document.createElement('tr');
   var col;
   for(var i = 0; i < inputArray.length; i++){
@@ -157,33 +240,52 @@ function generateDataRow(inputArray){
   return row;
 }
 
-function wantPizzas(inputArray){
-  var odysseyrow = document.createElement('ul');
-  var odysseycol;
+function generateDataRow(inputArray){
+  var row = document.createElement('tr');
+  var col;
   for(var i = 0; i < inputArray.length; i++){
-    odysseycol = document.createElement('li');
-    odysseycol.textContent = inputArray[i];
-    odysseyrow.appendChild(odysseycol);
+    col = document.createElement('td');
+    col.textContent = inputArray[i];
+    row.appendChild(col);
   }
-  return odysseyrow;
+  return row;
+}
+
+function pizzaSoldArray(store){
+  var row = document.createElement('ul');
+  var col;
+  for(var i = 0; i < inputArray.length; i++){
+    col = document.createElement('li');
+    col.textContent = inputArray[i];
+    row.appendChild(col);
+  }
+  return row;
+}
+
+function totalPizzas(store){
+  for(var i = 0; i < store.hourlyLocationData.length; i++){
+    pizzaOdyssey += store.hourlyLocationData[i].pizzasSold;
+  }
 }
 
 function makeTable(store, storeId){
-
-  var pizzaTable = document.getElementById(storeId);
+  pizzaTable = document.getElementById(storeId);
+  var fancyHeader = generateHeadingRow(['Time', 'Pizzas Sold', 'Pizzas Delivered', 'Drivers Recommended']);
+  pizzaTable.appendChild(fancyHeader);
   for(var i = 0; i < store.hourlyLocationData.length; i++) {
     var fancyRow = generateDataRow([store.hourlyLocationData[i].time, store.hourlyLocationData[i].pizzasSold, store.hourlyLocationData[i].deliveriesMade, store.hourlyLocationData[i].driversNeeded]);
     pizzaTable.appendChild(fancyRow);
+  }
+}
 
-    var fancyPizzas = wantPizzas([store.hourlyLocationData[i].pizzasSold]);
-  }
-  function sumPizzas(fancyPizzas){
-    var totalPizzas = 0;
-    for(var i = 0; i < fancyPizzas.length; i++){
-      totalPizzas += fancyPizzas[i];
-    }
-    sumPizzas();
-  }
+if(pizzaodysseysID){
+  totalPizzas(ballard);
+  totalPizzas(firstHill);
+  totalPizzas(theIntDist);
+  totalPizzas(southLakeUnion);
+  totalPizzas(georgeTown);
+  totalPizzas(Ravenna);
+  pizzaodysseysID.textContent = (pizzaOdyssey + ' total pizza odysseys this week.');
 }
 
 makeTable(ballard, 'ballard');
