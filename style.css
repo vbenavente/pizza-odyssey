@@ -1,14 +1,55 @@
 
-/*color palette*/
+/*color palette
+#09eb2b - space green
+#eb09c9 - space purple
+#e1e815 - space yellow*/
 
 .salesbody {
   background-color: grey;
 }
 #mainbody {
 font-family: 'Orbitron', sans-serif;
-background-color: #d500f9;
+background-image: url("https://www.colourbox.com/preview/3061226-vector-abstract-futuristic-hi-tech-background.jpg");
+/*background-color: #d500f9;*/
 }
 
+header h1 {
+  color: #09eb2b;
+  text-align: center;
+  vertical-align: middle;
+  padding: 50px;
+}
+
+img.align-center {
+  display: block;
+  margin: 0px auto;
+}
+img.medium {
+  width: 350px;
+  height: 200px;
+}
+
+h2 {
+  color: #09eb2b;
+  display: inline;
+  margin-right: 200px;
+  margin-left: 200px;
+  padding: 10px;
+}
+
+h4 {
+  display: block;
+  margin-left: 680px;
+  color: #e1e815;
+}
+
+ul{
+  margin-left: 200px;
+}
+
+li {
+  color: #eb09c9;
+}
 .insert{
   width: 50px;
 }
