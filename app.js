@@ -1,4 +1,4 @@
-var ballard, firstHill, theIntDist, southLakeUnion, georgeTown, Ravenna, newStoreInfo;
+var ballard, firstHill, theIntDist, southLakeUnion, georgeTown, Ravenna, newStoreInfo, addStore;
 var pizzaTable;
 var pizzaodysseysID = document.getElementById('pizzaodysseys');
 var pizzaOdyssey = 0;
@@ -8,24 +8,26 @@ var createAddStoreForm = document.getElementById('form');
 function collectAddStoreInfoFromForm(event){
   event.preventDefault();
 
-  var addstore = document.getElementById('form');
+  var addstore = document.getElementById('addstore');
 
   var getLocation = event.target.getLocation.value;
-  console.log(name);
-  var time = event.target.time8am.value;
-  var minPizzaSold = parseInt(event.target.minPizzaSold8am.value);
-  var maxPizzaSold = parseInt(event.target.maxPizzaSold8am.value);
-  var minDeliveriesMade = parseInt(event.target.minDeliveriesMade8am.value);
-  var maxDeliveriesMade = parseInt(event.target.maxDeliveriesMade8am.value);
+  console.log(getLocation);
+  var time8am = event.target.time8am.value;
+  var minPizzaSold8am = parseInt(event.target.minPizzaSold8am.value);
+  var maxPizzaSold8am = parseInt(event.target.maxPizzaSold8am.value);
+  var minDeliveriesMade8am = parseInt(event.target.minDeliveriesMade8am.value);
+  var maxDeliveriesMade8am = parseInt(event.target.maxDeliveriesMade8am.value);
+  console.log(time8am, minPizzaSold8am, maxPizzaSold8am, minDeliveriesMade8am, maxDeliveriesMade8am);
 
   function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  function CityLocation(name){
+  function CityLocation(getLocation){
     this.name = name;
     this.hourlyLocationData = [];
     this.HeaderData = [['Time'], ['Pizzas Sold'], ['Pizzas Delivered'], ['Drivers Recommended']];
+    console.log(this.name, this.hourlyLocationData, this.HeaderData);
   }
 
   CityLocation.prototype.pushHourlyData = function(data){
@@ -37,7 +39,14 @@ function collectAddStoreInfoFromForm(event){
     this.pizzasSold = getRandomIntInclusive(minPizzasSold, maxPizzasSold);
     this.deliveriesMade = getRandomIntInclusive(minDeliveriesMade, maxDeliveriesMade);
     this.driversNeeded = Math.ceil(this.deliveriesMade / 3);
+    console.log(this.time, this.pizzasSold, this.deliveriesMade, this.driversNeeded);
   }
+
+  addStore = new CityLocation(getLocation);
+  addStore.pushHourlyData(new HourlyData(time8am, minPizzaSold8am, maxPizzaSold8am, minDeliveriesMade8am, maxDeliveriesMade8am));
+
+  var getLocationTitle = document.createElement('h1');
+  getLocationTitle.textContent = getLocation;
 
   function generateHeadingRow(inputArray){
     var row = document.createElement('tr');
@@ -61,12 +70,13 @@ function collectAddStoreInfoFromForm(event){
     return row;
   }
 
-  function makeTable(name, storeId){
-    pizzaTable = document.getElementById(storeId);
+  function makeTable(getLocation, addStore){
+    pizzaTable = document.getElementById(addStore);
+    pizzaTable.appendChild(getLocationTitle);
     var fancyHeader = generateHeadingRow(['Time', 'Pizzas Sold', 'Pizzas Delivered', 'Drivers Recommended']);
     pizzaTable.appendChild(fancyHeader);
-    for(var i = 0; i < name.hourlyLocationData.length; i++) {
-      var fancyRow = generateDataRow([name.hourlyLocationData[i].time, name.hourlyLocationData[i].pizzasSold, name.hourlyLocationData[i].deliveriesMade, name.hourlyLocationData[i].driversNeeded]);
+    for(var i = 0; i < addStore.hourlyLocationData.length; i++) {
+      var fancyRow = generateDataRow([addStore.hourlyLocationData[i].time, addStore.hourlyLocationData[i].pizzasSold, addStore.hourlyLocationData[i].deliveriesMade, addStore.hourlyLocationData[i].driversNeeded]);
       pizzaTable.appendChild(fancyRow);
     }
   }
