@@ -7,7 +7,7 @@
 .salesbody {
   background-color: grey;
 }
-#mainbody {
+.mainbody {
 font-family: 'Orbitron', sans-serif;
 background-image: url("https://www.colourbox.com/preview/3061226-vector-abstract-futuristic-hi-tech-background.jpg");
 /*background-color: #d500f9;*/
@@ -69,4 +69,7 @@ th {
 img{
   width: 200px;
   heigth: 200px;
+}
+.weekly{
+  color: #09eb2b;
 }
