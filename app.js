@@ -3,13 +3,6 @@ var pizzaTable;
 var pizzaodysseysID = document.getElementById('pizzaodysseys');
 var pizzaOdyssey = 0;
 
-function addToExistingTable(store) {
-  for(i = 0; i < store.hourlyLocationData.length; i++) {
-    var row = generateDataRow([store.hourlyLocationData[i].time, store.hourlyLocationData[i].pizzasSold, store.hourlyLocationData[i].deliveriesMade, store.hourlyLocationData[i].driversNeeded]);
-    document.getElementById(store.name).appendChild(row);
-  }
-}
-
 var createAddStoreForm = document.getElementById('form');
 
 function collectAddStoreInfoFromForm(event){
@@ -28,11 +21,7 @@ function collectAddStoreInfoFromForm(event){
   newStoreInfo = new CityLocation('addstore');
   newStoreInfo.pushHourlyData(new HourlyData(time, minPizzaSold, maxPizzaSold, minDeliveriesMade, maxDeliveriesMade));
 
-  if(document.getElementById('addstore')) {
-    addToExistingTable(newStoreInfo);
-  } else {
-    makeTable(name, 'addstore');
-  }
+  makeTable(name, 'addstore');
 }
 
 createAddStoreForm.addEventListener('submit', collectAddStoreInfoFromForm);
