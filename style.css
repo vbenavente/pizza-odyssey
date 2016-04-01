@@ -68,8 +68,11 @@ th {
 }
 img{
   width: 200px;
-  heigth: 200px;
+  height: 200px;
 }
 .weekly{
+  color: #09eb2b;
+}
+.pizzaodysseys{
   color: #09eb2b;
 }
